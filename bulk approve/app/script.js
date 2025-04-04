@@ -14,7 +14,7 @@ var ZAGlobal = {
 
         // Render filtered records in the main table
         if (ZAGlobal.filteredRecords.length === 0 && ZAGlobal.processedRecords.length === 0) {
-            $('._tbody').html('<tr><td colspan="5">No records available to approve/reject.</td></tr>');
+            $('._tbody').html('<tr><td colspan="6" style="text-align:center">No records available to approve/reject.</td></tr>');
         } else {
             // Apply pagination
             var startIndex = (ZAGlobal.currentPage - 1) * ZAGlobal.recordsPerPage;
@@ -742,3 +742,54 @@ function loadChineseTranslations() {
 //     document.getElementById('search_popup').style.display = 'none';
 //     $('#module').val(null).trigger('change');
 // });
+
+// Sorting Related Works 
+let tblHeader = document.querySelector("thead");
+let tblBody = document.querySelector("._tbody");
+
+tblHeader.addEventListener("click", (e)=>{
+    ((e.target.closest("th")).querySelector(".dropdown-menu")).style.display = "flex";
+    let currentDropDown = e.target.closest("th").querySelector(".dropdown-menu");
+    (document.querySelectorAll(".dropdown-menu")).forEach(element => {
+        if((element.style.display === "flex") && (currentDropDown !== element)) {
+            element.style.display = "none";
+        }
+    });
+
+    let allHeadersList = Array.from(tblHeader.querySelector("tr").children);
+    currentDropDown.addEventListener("click", (event)=>{
+       let allRows = Array.from(tblBody.rows);
+       let indexOfColumn = allHeadersList.indexOf(currentDropDown.closest("th"));
+       allRows.sort((rowA, rowB)=>{
+            let cellA = rowA.cells[indexOfColumn].innerText;
+            let cellB = rowB.cells[indexOfColumn].innerText;
+            return cellA.localeCompare(cellB);
+       });
+       if(event.target.classList.contains("desc") || event.target.classList.contains("fa-arrow-down")){
+            for (let i = allRows.length-1; i>=0; i--) {
+                tblBody.appendChild(allRows[i]);
+            }
+       }
+       else if(event.target.classList.contains("asc") || event.target.classList.contains("fa-arrow-up")){
+            allRows.forEach(row => {
+                tblBody.appendChild(row)
+            });
+            
+       }
+       else if(event.target.classList.contains("unsort")){
+            initialRows.forEach(row => {
+                tblBody.appendChild(row)
+            });
+       }
+
+    });
+});
+
+window.addEventListener("click", (e)=>{
+    e.preventDefault();
+    if(!(e.target.closest("th"))){
+        (document.querySelectorAll(".dropdown-menu")).forEach(element => {
+            element.style.display = (element.style.display === "flex") ? "none" : "";
+        });
+    }
+});
