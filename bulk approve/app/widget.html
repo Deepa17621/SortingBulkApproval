@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Toastify/1.11.2/Toastify.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -49,30 +52,46 @@
   </div>
   </div>
 
+  <!--Sorting Related added to this code - Start -->
   <table>
     <thead>
       <tr>
         <th><input type="checkbox" id="selectAllCheckbox" /></th>
-        <th id="recordNameHeader"><div class="tbl-hdr-inner-container"><span class="tbl-heading">Record Name</span> <span class="menu-bar"><i class="fa-solid fa-bars"></i></span></div>
-          <ul class="dropdown-menu">
-            <li class="asc">asc <i class="fa-solid fa-arrow-up"></i></li>
-            <li class="desc">desc <i class="fa-solid fa-arrow-down"></i></li>
-            <li class="unsort">unsort</li>
-          </ul>
+        <th id="recordNameHeader">
+          <div class="tbl-hdr-inner-container">
+              <span class="tbl-heading">Record Name</span>
+                <span class="menu-bar"><i class="fa-solid fa-bars"></i>
+                  <ul class="dropdown-menu">
+                    <li class="asc">asc <i class="fa-solid fa-arrow-up"></i></li>
+                    <li class="desc">desc <i class="fa-solid fa-arrow-down"></i></li>
+                    <li class="unsort">unsort</li>
+                  </ul>
+              </span>
+          </div>
         </th>
-        <th id="approvalProcessNameHeader"><div class="tbl-hdr-inner-container"><span class="tbl-heading">Approval Process Name</span> <span class="menu-bar"><i class="fa-solid fa-bars"></i></span></div>
-          <ul class="dropdown-menu">
-            <li class="asc">asc <i class="fa-solid fa-arrow-up"></i></li>
-            <li class="desc">desc <i class="fa-solid fa-arrow-down"></i></li>
-            <li class="unsort">unsort</li>
-          </ul>
+        <th id="approvalProcessNameHeader">
+          <div class="tbl-hdr-inner-container">
+            <span class="tbl-heading">Approval Process Name</span> 
+              <span class="menu-bar"><i class="fa-solid fa-bars"></i>
+                <ul class="dropdown-menu">
+                  <li class="asc">asc <i class="fa-solid fa-arrow-up"></i></li>
+                  <li class="desc">desc <i class="fa-solid fa-arrow-down"></i></li>
+                  <li class="unsort">unsort</li>
+                </ul>
+              </span>
+          </div>
         </th>
-        <th id="moduleIdHeader"><div class="tbl-hdr-inner-container"><span class="tbl-heading">Module</span> <span class="menu-bar"><i class="fa-solid fa-bars"></i></span></div>
-          <ul class="dropdown-menu">
-            <li class="asc">asc <i class="fa-solid fa-arrow-up"></i></li>
-            <li class="desc">desc <i class="fa-solid fa-arrow-down"></i></li>
-            <li class="unsort">unsort</li>
-          </ul>
+        <th id="moduleIdHeader">
+          <div class="tbl-hdr-inner-container">
+            <span class="tbl-heading">Module</span> 
+            <span class="menu-bar"><i class="fa-solid fa-bars"></i>
+              <ul class="dropdown-menu">
+                <li class="asc">asc <i class="fa-solid fa-arrow-up"></i></li>
+                <li class="desc">desc <i class="fa-solid fa-arrow-down"></i></li>
+                <li class="unsort">unsort</li>
+              </ul>
+            </span>
+          </div>
         </th>
         <th id="action">Action</th>
         <th id="statusHeader"><div class="tbl-hdr-inner-container"><span class="tbl-heading">status</span> <span class="menu-bar"><i class="fa-solid fa-bars"></i></span></div>
@@ -87,6 +106,7 @@
     <tbody class="_tbody">
     </tbody>
   </table>
+  <!-- Sorting Related Added to this - End  -->
 
   <div id="approvalRejectPopup" class="popup">
     <div class="popup_content">

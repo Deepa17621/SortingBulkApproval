@@ -22,15 +22,16 @@ body {
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
-  /* Deepa's Code Modification */
-   .th-inner-container{
+  /* Sorting Related Code starts here */
+   .tbl-hdr-inner-container{
     display: flex;
     justify-content: space-between;
    }
-   .lookup-menu{
+   .dropdown-menu{
     display: none;
    }
    /* --End-- */
+
   .comments-section {
     margin-bottom: 20px;
   }
@@ -671,4 +672,27 @@ button.delegate-btn:hover {
   color: #007bff; 
   text-decoration: underline;
 }
+/* Sorting Related Style starts here. */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  flex-direction: column;
+  width: fit-content;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 8px;
+  list-style: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  margin-right: 0;
+}
 
+.dropdown-menu li {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background: #f0f0f0;
+}
+/* Sorting Related Style Ends here */

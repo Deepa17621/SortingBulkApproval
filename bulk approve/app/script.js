@@ -1,3 +1,4 @@
+var initialRows; // Sorting Related code line
 var ZAGlobal = {
     selectedRecords: [],
     allRecords: [],
@@ -56,6 +57,13 @@ var ZAGlobal = {
         }
         ZAGlobal.updatePagination();
         ZAGlobal.selectAll();
+
+        // Sorting related.
+        let initialTBody = document.querySelector("._tbody");
+        initialRows = Array.from(initialTBody.rows);
+        console.log(initialRows);
+        //sorting related
+        
     },
 
     updatePagination: function () {
@@ -743,7 +751,9 @@ function loadChineseTranslations() {
 //     $('#module').val(null).trigger('change');
 // });
 
-// Sorting Related Works 
+
+// Sorting Related Works - Starts
+
 let tblHeader = document.querySelector("thead");
 let tblBody = document.querySelector("._tbody");
 
@@ -757,7 +767,10 @@ tblHeader.addEventListener("click", (e)=>{
     });
 
     let allHeadersList = Array.from(tblHeader.querySelector("tr").children);
+
     currentDropDown.addEventListener("click", (event)=>{
+       console.log(currentDropDown);
+       
        let allRows = Array.from(tblBody.rows);
        let indexOfColumn = allHeadersList.indexOf(currentDropDown.closest("th"));
        allRows.sort((rowA, rowB)=>{
@@ -781,7 +794,6 @@ tblHeader.addEventListener("click", (e)=>{
                 tblBody.appendChild(row)
             });
        }
-
     });
 });
 
@@ -793,3 +805,5 @@ window.addEventListener("click", (e)=>{
         });
     }
 });
+
+// sorting related ends here.
