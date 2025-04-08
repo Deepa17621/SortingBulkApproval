@@ -754,7 +754,7 @@ function loadChineseTranslations() {
 
 // Sorting Related Works - Starts
 
-let tblHeader = document.querySelector("thead");
+let tblHeader = document.querySelector(".tbl-header");
 let tblBody = document.querySelector("._tbody");
 
 tblHeader.addEventListener("click", (e)=>{
